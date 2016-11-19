@@ -7,16 +7,57 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
+import GoogleSignIn
+import Fabric
+import TwitterCore
+import TwitterKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        application.statusBarStyle = .lightContent
+        
+        Twitter.sharedInstance().start(withConsumerKey: "uFIHSaxMsW65ejPSfUeiyKMQk", consumerSecret: "4bqZwXEXpgi7A7ZdZWVrTidkyMuL4oIy8wKg0v2C8zzZQ1dTUR")
+        Fabric.with([Twitter.self])
+        
+        
+        FIRApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error {
+            print("Failed to log into Google ", err)
+            return
+        }
+        
+        print("Sucessfully logging into Google", user)
+        
+        guard let idToken = user.authentication.accessToken else { return }
+        guard let accessToken = user.authentication.accessToken else { return }
+        
+        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
+        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+            if let err = error {
+                print("Failed to create a firebase user with google account ", err)
+                return
+            }
+        })
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,7 +81,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        GIDSignIn.sharedInstance().handle(url as URL!,
+                                             sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,
+                                             annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handled
+        
+    }
 }
-

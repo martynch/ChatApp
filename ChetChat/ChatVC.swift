@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+
 
 class ChatVC: UIViewController {
 
@@ -21,15 +23,19 @@ class ChatVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutBtn(_ sender: Any) {
+        
+        // Create main story board instance
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // from main storyboard instantiate a navigation controller
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        
+        // get the app delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //set login View controller as root view controller
+        appDelegate.window?.rootViewController = loginVC
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

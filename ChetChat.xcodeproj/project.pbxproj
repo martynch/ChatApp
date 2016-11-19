@@ -8,20 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		5A55A8B21DD624D200FE3039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55A8B11DD624D200FE3039 /* AppDelegate.swift */; };
-		5A55A8B41DD624D200FE3039 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55A8B31DD624D200FE3039 /* ViewController.swift */; };
 		5A55A8B71DD624D200FE3039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A55A8B51DD624D200FE3039 /* Main.storyboard */; };
 		5A55A8B91DD624D200FE3039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A55A8B81DD624D200FE3039 /* Assets.xcassets */; };
 		5A55A8BC1DD624D200FE3039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A55A8BA1DD624D200FE3039 /* LaunchScreen.storyboard */; };
+		5A55A8C71DD6257E00FE3039 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55A8C61DD6257E00FE3039 /* LoginVC.swift */; };
+		5A55A8C91DD625CD00FE3039 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55A8C81DD625CD00FE3039 /* ChatVC.swift */; };
+		5A55A8CD1DD6409D00FE3039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A55A8CC1DD6409D00FE3039 /* GoogleService-Info.plist */; };
+		653C6D0977A67348094C5F94 /* Pods_ChetChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987F22A55566A84CB43CAC76 /* Pods_ChetChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		147D264C1E2E8E0D3FC2AE55 /* Pods-ChetChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChetChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChetChat/Pods-ChetChat.release.xcconfig"; sourceTree = "<group>"; };
+		5A3472B11DD8DEA60087C01D /* ChetChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChetChat.entitlements; sourceTree = "<group>"; };
 		5A55A8AE1DD624D200FE3039 /* ChetChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChetChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A55A8B11DD624D200FE3039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A55A8B31DD624D200FE3039 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5A55A8B61DD624D200FE3039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A55A8B81DD624D200FE3039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A55A8BB1DD624D200FE3039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A55A8BD1DD624D200FE3039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A55A8C61DD6257E00FE3039 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		5A55A8C81DD625CD00FE3039 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		5A55A8CC1DD6409D00FE3039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89CE0DEA78766468107CA4C9 /* Pods-ChetChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChetChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChetChat/Pods-ChetChat.debug.xcconfig"; sourceTree = "<group>"; };
+		987F22A55566A84CB43CAC76 /* Pods_ChetChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChetChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +38,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653C6D0977A67348094C5F94 /* Pods_ChetChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16A7A59BBE1AF8E5C342968D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				987F22A55566A84CB43CAC76 /* Pods_ChetChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A55A8A51DD624D200FE3039 = {
 			isa = PBXGroup;
 			children = (
 				5A55A8B01DD624D200FE3039 /* ChetChat */,
 				5A55A8AF1DD624D200FE3039 /* Products */,
+				FBC84D0E8A3E64B89663F6FB /* Pods */,
+				16A7A59BBE1AF8E5C342968D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +74,50 @@
 		5A55A8B01DD624D200FE3039 /* ChetChat */ = {
 			isa = PBXGroup;
 			children = (
+				5A3472B11DD8DEA60087C01D /* ChetChat.entitlements */,
+				5A55A8C51DD6255300FE3039 /* Model */,
+				5A55A8C41DD6254400FE3039 /* View */,
+				5A55A8C31DD6253C00FE3039 /* Controller */,
+				5A55A8CC1DD6409D00FE3039 /* GoogleService-Info.plist */,
 				5A55A8B11DD624D200FE3039 /* AppDelegate.swift */,
-				5A55A8B31DD624D200FE3039 /* ViewController.swift */,
 				5A55A8B51DD624D200FE3039 /* Main.storyboard */,
 				5A55A8B81DD624D200FE3039 /* Assets.xcassets */,
 				5A55A8BA1DD624D200FE3039 /* LaunchScreen.storyboard */,
 				5A55A8BD1DD624D200FE3039 /* Info.plist */,
 			);
 			path = ChetChat;
+			sourceTree = "<group>";
+		};
+		5A55A8C31DD6253C00FE3039 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A55A8C61DD6257E00FE3039 /* LoginVC.swift */,
+				5A55A8C81DD625CD00FE3039 /* ChatVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5A55A8C41DD6254400FE3039 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5A55A8C51DD6255300FE3039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FBC84D0E8A3E64B89663F6FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89CE0DEA78766468107CA4C9 /* Pods-ChetChat.debug.xcconfig */,
+				147D264C1E2E8E0D3FC2AE55 /* Pods-ChetChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A55A8C01DD624D200FE3039 /* Build configuration list for PBXNativeTarget "ChetChat" */;
 			buildPhases = (
+				1B97874639686F765B1D82F8 /* [CP] Check Pods Manifest.lock */,
 				5A55A8AA1DD624D200FE3039 /* Sources */,
 				5A55A8AB1DD624D200FE3039 /* Frameworks */,
 				5A55A8AC1DD624D200FE3039 /* Resources */,
+				39202D0DF4CD9E73223375BA /* [CP] Embed Pods Frameworks */,
+				1A1D9EC87A86C5C6126307EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -98,6 +157,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = LPABA4W369;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -125,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A55A8BC1DD624D200FE3039 /* LaunchScreen.storyboard in Resources */,
+				5A55A8CD1DD6409D00FE3039 /* GoogleService-Info.plist in Resources */,
 				5A55A8B91DD624D200FE3039 /* Assets.xcassets in Resources */,
 				5A55A8B71DD624D200FE3039 /* Main.storyboard in Resources */,
 			);
@@ -132,12 +197,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A1D9EC87A86C5C6126307EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChetChat/Pods-ChetChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B97874639686F765B1D82F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39202D0DF4CD9E73223375BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChetChat/Pods-ChetChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5A55A8AA1DD624D200FE3039 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A55A8B41DD624D200FE3039 /* ViewController.swift in Sources */,
+				5A55A8C91DD625CD00FE3039 /* ChatVC.swift in Sources */,
+				5A55A8C71DD6257E00FE3039 /* LoginVC.swift in Sources */,
 				5A55A8B21DD624D200FE3039 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +296,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -231,6 +346,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -257,8 +373,11 @@
 		};
 		5A55A8C11DD624D200FE3039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89CE0DEA78766468107CA4C9 /* Pods-ChetChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChetChat/ChetChat.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = ChetChat/ChetChat.entitlements;
 				DEVELOPMENT_TEAM = LPABA4W369;
 				INFOPLIST_FILE = ChetChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -270,8 +389,10 @@
 		};
 		5A55A8C21DD624D200FE3039 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 147D264C1E2E8E0D3FC2AE55 /* Pods-ChetChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChetChat/ChetChat.entitlements;
 				DEVELOPMENT_TEAM = LPABA4W369;
 				INFOPLIST_FILE = ChetChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,6 +421,7 @@
 				5A55A8C21DD624D200FE3039 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
