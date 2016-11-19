@@ -64,6 +64,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                         return
                     }
                     
+                    self.login()
                     print("User Logged in with Twitter")
                 })
             } else {
@@ -96,6 +97,21 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
     func handleRegister() {
         
+        self.emailField.resignFirstResponder()
+        self.pwdField.resignFirstResponder()
+        
+        if let email = emailField.text, let pwd = pwdField.text {
+            FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user: FIRUser?, error) in
+                
+                if error != nil {
+                    
+                    print("Unaable to authenticate with Firebase using email")
+                } else {
+                    self.login()
+                    print("Sucessfully logged in")
+                }
+            })
+        }
         
         print("Arrived at handleRegister Func")
     }
