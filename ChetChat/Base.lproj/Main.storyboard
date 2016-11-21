@@ -38,6 +38,9 @@
                                             <segment title="Register"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="segmentControl:" destination="olt-Iu-J3u" eventType="valueChanged" id="2FH-AO-l5o"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="I74-hi-cui">
                                         <rect key="frame" x="0.0" y="58" width="248" height="226"/>
@@ -69,17 +72,17 @@
                                                             <outlet property="delegate" destination="olt-Iu-J3u" id="JXw-mh-JBi"/>
                                                         </connections>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Teq-aX-vMI">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Teq-aX-vMI">
                                                         <rect key="frame" x="0.0" y="80" width="208" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="4Ey-dp-AAa"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <state key="normal" title="Login/Register">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="signInTapped:" destination="olt-Iu-J3u" eventType="touchUpInside" id="oDb-y5-A8A"/>
+                                                            <action selector="signInTapped:" destination="olt-Iu-J3u" eventType="touchUpInside" id="Nu4-Oz-N4Y"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -159,6 +162,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="UMK-ne-KwD" id="8ZJ-dY-DWb"/>
+                        <outlet property="loginRegisterBtn" destination="Teq-aX-vMI" id="AyZ-Ar-iA2"/>
                         <outlet property="loginRegisterSegment" destination="dD4-oE-nBt" id="juW-CP-jnZ"/>
                         <outlet property="pwdField" destination="ghj-Fc-45o" id="GBF-zb-OXF"/>
                     </connections>
@@ -198,7 +202,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="d3G-Va-OTB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hlp-zg-4hw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hlp-zg-4hw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.26666666666666666" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>

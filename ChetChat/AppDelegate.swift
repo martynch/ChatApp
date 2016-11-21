@@ -39,25 +39,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
+    // GOOGLE open URL
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        return GIDSignIn.sharedInstance().handle(url as URL!,
+                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+    }
+    
+    // FACEBOOK open URL
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let err = error {
-            print("Failed to log into Google ", err)
-            return
-        }
         
-        print("Sucessfully logging into Google", user)
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!, accessToken: (authentication?.accessToken)!)
         
-        guard let idToken = user.authentication.accessToken else { return }
-        guard let accessToken = user.authentication.accessToken else { return }
-        
-        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-            if let err = error {
-                print("Failed to create a firebase user with google account ", err)
-                return
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error) in
+            
+            if error != nil {
+                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                    switch errCode {
+                    case .errorCodeEmailAlreadyInUse:
+                        self.showAlert(title: "The email address is already in use by another account", message: "Please try again", buttonTitle: "OK", window: self.window!)
+                    default:
+                        print("ANY OTHER ERROR")
+                    }
+                }
+
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = naviVC
+
+                print("LOGGIN IN")
             }
         })
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -82,16 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        
-        GIDSignIn.sharedInstance().handle(url as URL!,
-                                             sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,
-                                             annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        return handled
+    func showAlert (title : String, message: String, buttonTitle: String, window: UIWindow) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+        window.rootViewController?.present(alert, animated: true, completion: nil)
         
     }
 }
