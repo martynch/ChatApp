@@ -45,7 +45,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             if error != nil {
                 
-                print("NUMBER 3")
+                print("Unable to logon with Facebook \(error)")
                 print(error?.localizedDescription ?? "Number 3")
                 print (error.debugDescription)
                 
@@ -64,6 +64,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                 print (error.debugDescription)
             }
             print(error?.localizedDescription ?? "Failed Number 5")
+            self.showAlert(title: "Email in use, did you use another methond to register", msg: "Please try again")
             print (error.debugDescription)
             print("NUMBER 5")
         }
