@@ -62,6 +62,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - SwiftKeychainWrapper (2.0.0)
   - TwitterCore (2.4.0):
     - Fabric
   - TwitterKit (2.4.0):
@@ -76,6 +77,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - JSQMessagesViewController
+  - SwiftKeychainWrapper
   - TwitterKit
 
 SPEC CHECKSUMS:
@@ -99,9 +101,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  SwiftKeychainWrapper: 3575838215fa36c816899c301a7afe370bd94814
   TwitterCore: a139904c80805ad3dde9eef1100704f96f646d1d
   TwitterKit: 1cf9742edf9d182c1518cfdd6aaac0dfe313b38b
 
-PODFILE CHECKSUM: a68625706b7c8839c31db3094d3ebcb16f92b45b
+PODFILE CHECKSUM: 5c9fb1e93ffe11cc6a02650e5ade70bb7a384856
 
 COCOAPODS: 1.1.1

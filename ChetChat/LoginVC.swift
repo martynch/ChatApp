@@ -12,8 +12,10 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
+import SwiftKeychainWrapper
 import TwitterKit
 import JSQMessagesViewController
+
 
 class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
@@ -64,7 +66,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                 print (error.debugDescription)
             }
             print(error?.localizedDescription ?? "Failed Number 5")
-            self.showAlert(title: "Email in use, did you use another methond to register", msg: "Please try again")
+            self.showAlert("Email in use, did you use another methond to register", msg: "Please try again")
             print (error.debugDescription)
             print("NUMBER 5")
         }
@@ -146,9 +148,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                         switch errCode {
                         case .errorCodeEmailAlreadyInUse:
-                            self.showAlert(title: "The email address is already in use", msg: "Did you register using another method below?")
+                            self.showAlert("The email address is already in use", msg: "Did you register using another method below?")
                         case .errorCodeWeakPassword:
-                            self.showAlert(title: "Weak Password", msg: "The password must be at least 6 characters long")
+                            self.showAlert("Weak Password", msg: "The password must be at least 6 characters long")
                         default:
                             print("DID NOT CATCH ANY FAULT")
                         }
@@ -182,10 +184,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                         switch errCode {
                         case .errorCodeWrongPassword:
-                            self.showAlert(title: "Incorrect password", msg: "Please try again")
+                            self.showAlert("Incorrect password", msg: "Please try again")
                             break;
                         case .errorCodeUserNotFound:
-                            self.showAlert(title: "Email address not found", msg: "Please try again or register")
+                            self.showAlert("Email address not found", msg: "Please try again or register")
                             print("NO SUCH FUCKING USER BITCH")
                             break;
                         case .errorCodeInvalidCredential:
@@ -261,7 +263,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         self.view.endEditing(true)
     }
     
-    func showAlert(title: String, msg: String) {
+    func showAlert(_ title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)

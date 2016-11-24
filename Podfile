@@ -15,6 +15,7 @@ target 'ChetChat' do
   pod 'JSQMessagesViewController'
   pod 'Fabric'
   pod 'TwitterKit'
+  pod 'SwiftKeychainWrapper'
 
 
 end

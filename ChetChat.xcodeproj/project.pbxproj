@@ -170,6 +170,7 @@
 					5A55A8AD1DD624D200FE3039 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = LPABA4W369;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {

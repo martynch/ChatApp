@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             
             if error != nil {
-                self.showAlert(title: "Email in use", message: "Have you logged before using another method?", buttonTitle: "OK", window: self.window!)
+                self.showAlert("Email in use", message: "Have you logged before using another method?", buttonTitle: "OK", window: self.window!)
                 print(error.debugDescription)
                 
                 return
@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func showAlert (title : String, message: String, buttonTitle: String, window: UIWindow) {
+    func showAlert (_ title : String, message: String, buttonTitle: String, window: UIWindow) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
         window.rootViewController?.present(alert, animated: true, completion: nil)
