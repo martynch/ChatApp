@@ -35,6 +35,16 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let _ = KeychainWrapper.defaultKeychainWrapper().stringForKey(KEY_UID) {
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+            
+            print("did we get here")
+            
+        }
+    }
+    
     // Facebook Login Button
     @IBAction func facebookBtnTapped(_ sender: Any) {
         
@@ -89,7 +99,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                         print("First error")
                         return
                     }
-                    self.login()
+                    if let user = user {
+                       self.login(id: (user.uid))
+                    }
                 })
             } else {
                 if error != nil {
@@ -157,8 +169,19 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                     }
                     
                 } else {
-                    self.login()
-                    print("Sucessfully logged in")
+                    if let user = user {
+                       self.login(id: (user.uid))
+                    }
+                    let ref = FIRDatabase.database().reference(fromURL: "https://chatapp-7fccc.firebaseio.com/")
+                    let values = ["email" :email]
+                    ref.updateChildValues(values, withCompletionBlock: { (err, FIRDatabaseReference) in
+                        
+                        if err != nil {
+                            print(err ?? "Persistant error")
+                            return
+                        }
+                    })
+                    print("Persisteded into FirDatabase")
                 }
             })
         }
@@ -204,7 +227,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                 
                 else {
                     
-                    self.login()
+                    if let user = user {
+                      self.login(id: (user.uid))
+                    }
                     print("LOGGED IN")
                     print(error?.localizedDescription ?? "No Errors Found")
                     print(error.debugDescription)
@@ -223,7 +248,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                 print("Unable to authenticate with Firebase - \(error)")
             } else {
                 print("Sucessfully authenticated with FB")
-                self.login()
+                if let user = user {
+                    self.login(id: (user.uid))
+                }
             }
         })
     }
@@ -241,11 +268,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         }
     }
     
-    func login() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = naviVC
+    func login(id: String) {
+        let keychainResult = KeychainWrapper.defaultKeychainWrapper().setString(id, forKey: KEY_UID)
+        print("Data Saved to Keychain \(keychainResult)")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
         
     }
     

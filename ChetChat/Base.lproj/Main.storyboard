@@ -88,7 +88,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="300" translatesAutoresizingMaskIntoConstraints="NO" id="AXc-hs-wkR">
-                                                <rect key="frame" x="7.5" y="140" width="233" height="16"/>
+                                                <rect key="frame" x="8" y="140" width="233" height="16"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="C7D-ei-dKP">
                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="16"/>
@@ -165,6 +165,7 @@
                         <outlet property="loginRegisterBtn" destination="Teq-aX-vMI" id="AyZ-Ar-iA2"/>
                         <outlet property="loginRegisterSegment" destination="dD4-oE-nBt" id="juW-CP-jnZ"/>
                         <outlet property="pwdField" destination="ghj-Fc-45o" id="GBF-zb-OXF"/>
+                        <segue destination="SjL-im-4vh" kind="show" identifier="goToFeed" id="3s4-Q6-bRQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e51-be-QxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,39 +183,33 @@
                     <view key="view" contentMode="scaleToFill" id="Iyt-KO-BiQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Neg-4Z-C67">
+                                <rect key="frame" x="120" y="269" width="80" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="SjL-im-4vh" eventType="touchUpInside" id="pyQ-Hz-tY6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Neg-4Z-C67" firstAttribute="centerX" secondItem="Iyt-KO-BiQ" secondAttribute="centerX" id="kQx-nC-RdJ"/>
+                            <constraint firstItem="Neg-4Z-C67" firstAttribute="centerY" secondItem="Iyt-KO-BiQ" secondAttribute="centerY" id="sa9-HW-Tih"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AxQ-qI-Mii">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="3Vs-Wi-VIj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="logoutBtn:" destination="SjL-im-4vh" id="8ER-un-ttZ"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="olt-Iu-J3u" kind="show" identifier="goToLoginVC" id="RCS-db-tZp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eP-MT-73C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-91"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qUm-2E-IvJ">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="d3G-Va-OTB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hlp-zg-4hw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.14901960784313725" green="0.26666666666666666" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SjL-im-4vh" kind="relationship" relationship="rootViewController" id="cPy-ME-GRz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u4m-RN-AdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="341.25" y="-90.845070422535215"/>
+            <point key="canvasLocation" x="399.375" y="-92.957746478873247"/>
         </scene>
     </scenes>
     <resources>

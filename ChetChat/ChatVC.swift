@@ -8,14 +8,14 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
+import SwiftKeychainWrapper
 
 
 class ChatVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,19 +23,37 @@ class ChatVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signOut(_ sender: Any) {
+        
+        KeychainWrapper.removeObjectForKey(KEY_UID)
+        try! FIRAuth.auth()?.signOut()
+        performSegue(withIdentifier: "goToLoginVC", sender: nil)
+        
+        
+        
+    }
+    
+    
+    
+    
     @IBAction func logoutBtn(_ sender: Any) {
+    
         
-        // Create main story board instance
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        // from main storyboard instantiate a navigation controller
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        
-        // get the app delegate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        //set login View controller as root view controller
-        appDelegate.window?.rootViewController = loginVC
 
+        
+        
+        //        // Create main story board instance
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        // from main storyboard instantiate a navigation controller
+//        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+//        
+//        // get the app delegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//        //set login View controller as root view controller
+//        appDelegate.window?.rootViewController = loginVC
+//
     }
 }

@@ -392,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89CE0DEA78766468107CA4C9 /* Pods-ChetChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ChetChat/ChetChat.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = ChetChat/ChetChat.entitlements;
@@ -408,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 147D264C1E2E8E0D3FC2AE55 /* Pods-ChetChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ChetChat/ChetChat.entitlements;
 				DEVELOPMENT_TEAM = LPABA4W369;
