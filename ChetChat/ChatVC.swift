@@ -13,47 +13,44 @@ import SwiftKeychainWrapper
 
 
 class ChatVC: UIViewController {
+    
+    @IBOutlet weak var currentUser: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkIfUserIsLoggedIn()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     @IBAction func signOut(_ sender: Any) {
         
-        KeychainWrapper.removeObjectForKey(KEY_UID)
-        try! FIRAuth.auth()?.signOut()
-        performSegue(withIdentifier: "goToLoginVC", sender: nil)
-        
-        
-        
+        handleLogout()
     }
     
+    func checkIfUserIsLoggedIn() {
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            handleLogout()
+        } else {
+            let uid = FIRAuth.auth()?.currentUser?.uid
+            FIRDatabase.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: Any] {
+                    // THIS WILL CHANGE WHEN I HAVE THE USERS
+                    self.currentUser.text = dictionary["username"] as? String
+                }
+                print(snapshot)
+                
+            }, withCancel: { (nil) in
+                
+            })
+        }
+    }
     
-    
-    
-    @IBAction func logoutBtn(_ sender: Any) {
-    
-        
-        
-
-        
-        
-        //        // Create main story board instance
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        // from main storyboard instantiate a navigation controller
-//        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-//        
-//        // get the app delegate
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        
-//        //set login View controller as root view controller
-//        appDelegate.window?.rootViewController = loginVC
-//
+    func handleLogout() {
+        try! FIRAuth.auth()?.signOut()
+        KeychainWrapper.removeObjectForKey(KEY_UID)
+        performSegue(withIdentifier: "goToLoginVC", sender: nil)
     }
 }

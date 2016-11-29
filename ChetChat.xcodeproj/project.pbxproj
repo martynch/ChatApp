@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A03E1471DECA195008D3E61 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03E1461DECA195008D3E61 /* DataService.swift */; };
+		5A03E14A1DECCFD0008D3E61 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03E1491DECCFD0008D3E61 /* Helper.swift */; };
 		5A07BD711DE34AA80019F541 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07BD701DE34AA80019F541 /* Constants.swift */; };
 		5A07BD731DE350BD0019F541 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07BD721DE350BD0019F541 /* MaterialTextField.swift */; };
 		5A55A8B21DD624D200FE3039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55A8B11DD624D200FE3039 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		147D264C1E2E8E0D3FC2AE55 /* Pods-ChetChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChetChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChetChat/Pods-ChetChat.release.xcconfig"; sourceTree = "<group>"; };
+		5A03E1461DECA195008D3E61 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		5A03E1491DECCFD0008D3E61 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5A07BD701DE34AA80019F541 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A07BD721DE350BD0019F541 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		5A3472B11DD8DEA60087C01D /* ChetChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChetChat.entitlements; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A03E1481DECA199008D3E61 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5A03E1461DECA195008D3E61 /* DataService.swift */,
+				5A03E1491DECCFD0008D3E61 /* Helper.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		5A07BD6F1DE34A8B0019F541 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +103,7 @@
 				5A55A8C51DD6255300FE3039 /* Model */,
 				5A55A8C41DD6254400FE3039 /* View */,
 				5A55A8C31DD6253C00FE3039 /* Controller */,
+				5A03E1481DECA199008D3E61 /* Services */,
 				5A07BD6F1DE34A8B0019F541 /* Utils */,
 				5A55A8CC1DD6409D00FE3039 /* GoogleService-Info.plist */,
 				5A55A8B11DD624D200FE3039 /* AppDelegate.swift */,
@@ -266,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A55A8C91DD625CD00FE3039 /* ChatVC.swift in Sources */,
+				5A03E14A1DECCFD0008D3E61 /* Helper.swift in Sources */,
 				5A55A8C71DD6257E00FE3039 /* LoginVC.swift in Sources */,
 				5A07BD731DE350BD0019F541 /* MaterialTextField.swift in Sources */,
+				5A03E1471DECA195008D3E61 /* DataService.swift in Sources */,
 				5A55A8B21DD624D200FE3039 /* AppDelegate.swift in Sources */,
 				5A07BD711DE34AA80019F541 /* Constants.swift in Sources */,
 			);

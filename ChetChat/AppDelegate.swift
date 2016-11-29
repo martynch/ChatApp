@@ -60,10 +60,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             
             guard let uid = user?.uid else { return }
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = naviVC
+            
+//            let keychainResult = KeychainWrapper.defaultKeychainWrapper().setString(id, forKey: KEY_UID)
+//            
+//            DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+//            
+//            print("Data Saved to Keychain \(keychainResult)")
+//            
+//        
+//            performSegue(withIdentifier: "goToFeed", sender: nil)
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.window?.rootViewController = naviVC
             
             print("Sucessfully logged into firebase with google", uid)
             
