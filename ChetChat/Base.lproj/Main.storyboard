@@ -214,14 +214,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFY-Ay-rzO">
+                                        <rect key="frame" x="227" y="18" width="85" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="L6A-Ot-YB0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Messages">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="messagesBtn:" destination="SjL-im-4vh" eventType="touchUpInside" id="mWd-O7-7za"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="SMY-4I-EzW" firstAttribute="centerY" secondItem="6zP-GI-QKD" secondAttribute="centerY" id="5Kg-Mg-dg4"/>
+                                    <constraint firstItem="CFY-Ay-rzO" firstAttribute="top" secondItem="6zP-GI-QKD" secondAttribute="top" constant="18" id="Gkg-FT-b89"/>
                                     <constraint firstItem="ffV-8W-EuD" firstAttribute="centerY" secondItem="6zP-GI-QKD" secondAttribute="centerY" id="MVp-qC-wne"/>
                                     <constraint firstItem="ffV-8W-EuD" firstAttribute="centerX" secondItem="6zP-GI-QKD" secondAttribute="centerX" id="Wve-30-ScV"/>
                                     <constraint firstAttribute="height" constant="65" id="kI4-1X-dSq"/>
                                     <constraint firstItem="SMY-4I-EzW" firstAttribute="leading" secondItem="6zP-GI-QKD" secondAttribute="leading" constant="8" id="paF-bm-uyC"/>
+                                    <constraint firstAttribute="trailing" secondItem="CFY-Ay-rzO" secondAttribute="trailing" constant="8" id="s63-2z-vTd"/>
+                                    <constraint firstAttribute="bottom" secondItem="CFY-Ay-rzO" secondAttribute="bottom" constant="17" id="viM-Jl-yqC"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rhV-A5-Jhf">
@@ -232,7 +248,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BpU-jP-yYI" id="WXb-nC-dv1">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -259,16 +275,88 @@
                     <connections>
                         <outlet property="currentUser" destination="ffV-8W-EuD" id="di4-oX-UQI"/>
                         <segue destination="olt-Iu-J3u" kind="show" identifier="goToLoginVC" id="RCS-db-tZp"/>
+                        <segue destination="6nk-Nv-QGX" kind="show" identifier="goToMessages" id="ter-67-Ngf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eP-MT-73C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399.375" y="-92.957746478873247"/>
+            <point key="canvasLocation" x="84.375" y="-94.014084507042256"/>
+        </scene>
+        <!--New MessageVC-->
+        <scene sceneID="gMp-34-9xS">
+            <objects>
+                <viewController id="6nk-Nv-QGX" customClass="NewMessageVC" customModule="ChetChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bwN-F0-YrR"/>
+                        <viewControllerLayoutGuide type="bottom" id="qYV-zf-fwv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pY8-Cl-mWa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btW-6e-aWF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="D2n-a7-vZQ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6TS-9C-keE">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessagesCell" rowHeight="69" id="inv-zR-02X" customClass="MessagesCell" customModule="ChetChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="69"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="inv-zR-02X" id="Bvh-0B-Uha">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dummyUser" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-wu-OrB">
+                                                    <rect key="frame" x="8" y="9" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVQ-wD-Huw">
+                                                    <rect key="frame" x="71" y="24" width="178" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImg" destination="zaV-wu-OrB" id="Twq-ZY-uCk"/>
+                                            <outlet property="userName" destination="hVQ-wD-Huw" id="ybs-XA-Iam"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6TS-9C-keE" firstAttribute="leading" secondItem="pY8-Cl-mWa" secondAttribute="leading" id="6ss-IC-3Ga"/>
+                            <constraint firstAttribute="bottom" secondItem="6TS-9C-keE" secondAttribute="bottom" id="EAF-1i-VqD"/>
+                            <constraint firstItem="btW-6e-aWF" firstAttribute="top" secondItem="pY8-Cl-mWa" secondAttribute="top" id="V4s-z5-WK2"/>
+                            <constraint firstItem="6TS-9C-keE" firstAttribute="top" secondItem="btW-6e-aWF" secondAttribute="bottom" id="aG0-QZ-Zd3"/>
+                            <constraint firstAttribute="trailing" secondItem="6TS-9C-keE" secondAttribute="trailing" id="dia-Pi-X3p"/>
+                            <constraint firstAttribute="trailing" secondItem="btW-6e-aWF" secondAttribute="trailing" id="min-VA-3nz"/>
+                            <constraint firstItem="btW-6e-aWF" firstAttribute="leading" secondItem="pY8-Cl-mWa" secondAttribute="leading" id="vgy-WW-mxo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6TS-9C-keE" id="xRS-cU-HKE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVj-2r-NMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845.625" y="-94.014084507042256"/>
         </scene>
     </scenes>
     <resources>
         <image name="OrLine" width="864" height="45"/>
         <image name="backgroundPhoto" width="1125" height="2001"/>
+        <image name="dummyUser" width="90" height="90"/>
         <image name="facebook" width="128" height="128"/>
         <image name="googleButton" width="120" height="120"/>
         <image name="twitter" width="128" height="128"/>

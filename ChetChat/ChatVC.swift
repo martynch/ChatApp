@@ -23,6 +23,10 @@ class ChatVC: UIViewController {
         
     }
     
+    @IBAction func messagesBtn(_ sender: Any) {
+        
+        performSegue(withIdentifier: "goToMessages", sender: nil)
+    }
     
     @IBAction func signOut(_ sender: Any) {
         
